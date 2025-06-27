@@ -1,69 +1,82 @@
-# 🌐 LangChain Groq Translation API
+Ollama-QA-Chatbot-Streamlit
 
-This is a lightweight translation API built with **FastAPI**, **LangChain**, and **Groq's Gemma2-9b-it** model. The server exposes a `/chain` endpoint that accepts input text and the target language, and returns the translated result.
 
-## 🚀 Features
+An interactive Q&A chatbot built with Streamlit and Ollama open-source LLMs.  
+Lets users query models like gemma, phi3, and mistral with custom temperature and token settings.  
+Ideal for exploring open-source chat capabilities directly in your browser.
 
-- 🔁 Translates user text into a target language using LLM
-- ⚡ Powered by Groq's high-speed inference
-- 🧩 Modular LangChain Runnables with LangServe FastAPI routing
+
+
+# Ollama-QA-Chatbot-Streamlit
+
+An interactive Q&A chatbot built with Streamlit and Ollama open-source LLMs.  
+Lets users query models like gemma, phi3, and mistral with custom temperature and token settings.  
+Ideal for exploring open-source chat capabilities directly in your browser.
 
 ---
 
-## 🛠️ Installation
+## 🚀 Features
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/langchain-groq-translation-api.git
-   cd langchain-groq-translation-api
+✅ Streamlit web UI for easy interaction  
+✅ Supports multiple Ollama LLMs (gemma, phi3, mistral)  
+✅ Adjustable temperature and max tokens  
+✅ Environment-configured LangChain tracing for debugging
+
+---
+
+## 🏗️ Project Structure
 
 
-Create virtual environment and install dependencies
+- **streamlit_app.py** → Main Streamlit app  
+- **.env** → Holds API keys and environment variables  
+- **requirements.txt** → Python dependencies  
 
+---
 
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+## 📦 Requirements
+
+- Python 3.9+
+- Ollama and LangChain libraries
+- OpenAI-compatible environment variables if tracing (optional)
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 
-
-Set up environment variables
-
-Create a .env file in the root directory with your Groq API key:
-
-
-GROK_API_KEY=your_groq_api_key_here
-
-▶️ Running the API
-
-uvicorn main:app --reload
-Once running, access your API at http://127.0.0.1:8000/chain
+langchain
+langchain-openai
+python-dotenv
+langchain_community
+langchain_core
+streamlit
 
 
-📬 Example Request
-POST /chain/invoke
-Request Body:
+.env
+LANGCHAIN_API_KEY=YOUR_LANGCHAIN_KEY
+GROK_API_KEY=abc....
 
-{
-  "input": {
-    "text": "How are you?",
-    "language": "French"
-  }
-}
+💻 How To Run
 
-Response:
+streamlit run streamlit_app.py
 
-{
-  "output": "Comment ça va ?"
-}
+🔎 Example Usage
+
+You: What is machine learning?
+You: What is machine learning?
+LLaMA: Machine learning is a branch of artificial intelligence focused on building systems that learn from data rather than being explicitly programmed...
 
 
-🧩 Stack
-LangChain
+👤 Author
+Aryan Patel
 
-LangServe
 
-Groq + Gemma2-9b-it
+🌟 Future Enhancements
 
-FastAPI
+Add support for more Ollama models
 
-# Langchain-Groq-Translation-Gen_AI_Project
+Implement conversation memory
+
+Enable PDF uploads for context-based Q&A
+
+Deploy to public hosting for live demos
